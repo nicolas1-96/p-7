@@ -20,4 +20,8 @@ router.post('/:id/comment', auth, postCtrl.newComment);
 router.get('/:id/comments', auth, postCtrl.getAllComments);
 router.delete('/comment/:id', auth, postCtrl.deleteComment);
 
+// Likes
+// router.patch('/like-post/:id', auth, userCtrl.likePost);
+// router.patch('/unlike-post/:id', auth, userCtrl.unlikePost);
+
 module.exports = router;
