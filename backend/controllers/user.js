@@ -19,7 +19,7 @@ schema
 
 //AUTHENTIFICATION
 exports.signup = (req, res, next) => {
-    if (!req.body.firstname || !req.body.name || !req.body.email || !req.body.password) {
+    if (!req.body.firstName || !req.body.name || !req.body.email || !req.body.password) {
         return res.status(400).json({ message:'Veuillez remplir tous les champs'});
     }
 
@@ -34,7 +34,7 @@ exports.signup = (req, res, next) => {
 
                 bcrypt.hash(req.body.password, 10, function(err, bcryptedPassword) {
                     const newUser = models.user.create({
-                        firstname: req.body.firstname,
+                        firstName: req.body.firstName,
                         name: req.body.name,
                         email: req.body.email,
                         password: bcryptedPassword,
@@ -66,6 +66,7 @@ exports.signup = (req, res, next) => {
 
 
 exports.login = (req, res, next) => {
+    console.log(req.body,"test-user")
     if (!req.body.email || !req.body.password) {
         return res.status(400).json({ message:'Veuillez remplir tous les champs'});
     }
@@ -74,10 +75,15 @@ exports.login = (req, res, next) => {
         where: { email: req.body.email}
     })
     .then(function(userFound) {
-        console.log('utilisateur : ' + userFound.firstname + ' ' + userFound.name)
+        console.log(req.body,"test-user")
+        console.log('utilisateur : ' + userFound.firstName + ' ' + userFound.name)
         if (userFound) {
 
             //SESSION ADMIN TEST//
+console.log(process.env.USER_ADMIN_EMAIL,"ENV_TEST_EMAIL",userFound.email,)
+console.log(process.env.USER_ADMIN_PWD,"ENV_TEST_password",userFound.password,)
+
+            console.log(userFound.email == process.env.USER_ADMIN_EMAIL && userFound.password == process.env.USER_ADMIN_PWD,"USER-TEST")
             if (userFound.email == process.env.USER_ADMIN_EMAIL && userFound.password == process.env.USER_ADMIN_PWD) {
                 console.log('Administrateur compte test');
                 console.log('connexion');

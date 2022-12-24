@@ -7,7 +7,7 @@
           firstName: 'John',
           name: 'Doe',
           email: 'test@test.com',
-          password: "Niko1234//",
+          password:  "Niko1234",
           isAdmin: 1,
           createdAt: new Date(),
           updatedAt: new Date()
@@ -17,5 +17,3 @@
         return queryInterface.bulkDelete('Users', null, {});
       }
     };
-  
-  

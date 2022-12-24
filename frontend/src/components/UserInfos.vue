@@ -9,7 +9,7 @@
             <img v-else src="@/assets/placeholderpic.jpg" alt="Image de profil" />
             <button type="button" v-if=" user.id == user_Id" @click="toggleModale()" class="userinfos__pic--modifybtn btn"><img class="userinfos__pic--modifybtnimg" src="../assets/wheel.svg" alt="Cliquez ici pour modifier votre photo de profil"></button>
         </div>    
-        <h1>{{ user.firstname }} {{ user.name }}</h1>
+        <h1>{{ user.firstName }} {{ user.name }}</h1>
         <p>{{ user.email }}</p>
         <button type=button v-if="is_Admin" class="userinfos__deletebtn btn" @click="deleteAccount()">Supprimer le compte</button>
         

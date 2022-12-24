@@ -8,7 +8,7 @@
         <article class="post" v-for="post in posts" :key="post.id">
             <div class="post__header">
             <div class="post__header--username">
-               <span class="post__header--username-name">{{ post.user.firstname + ' ' }}{{ post.user.name.toUpperCase() }}</span>
+               <span class="post__header--username-name">{{ post.user.firstName + ' ' }}{{ post.user.name.toUpperCase() }}</span>
             </div>
             <div class="post__header--buttons">   
                <button  type="button" class="post__header--buttons-modify btn" v-if="post.userId == user_id" @click="toggleModale(post.id)"> <img src="../assets/wheel.svg" class="post__header--buttons-modify-img" alt="modifier le commmentaire"></button>

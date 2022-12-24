@@ -1,7 +1,7 @@
 <template>
 <div class="container-post">
     <div class="post">
-        <h2>Bonjour {{ user.firstname }},</h2>
+        <h2>Bonjour {{ user.firstName }},</h2>
         <form class="post__form">
             <label for="post-title">Donnez un titre à votre article :</label>
             <input type="text" id="post-title" placeholder="Titre..." aria-label="Ecrivez le titre ici" v-model="input.postTitle" required>

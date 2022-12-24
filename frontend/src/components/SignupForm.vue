@@ -61,7 +61,7 @@ export default {
                
                //Si vérifications des champs ok, on envoie la requête  
                 axios.post("http://localhost:3000/api/auth/signup", {
-                    firstname: this.input.firstName,
+                    firstName: this.input.firstName,
                     name: this.input.name,
                     email: this.input.email,
                     password: this.input.password

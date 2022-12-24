@@ -27,6 +27,7 @@
                             <div class="post__footer--comments">   
                                 <button class="post__footer--comments-btn" type="button" @click="showComments(post.id)" aria-label="Afficher ou masquer les commentaires" ><img alt="commentaires" class="post__footer--comments-btn-img" src="data:image/svg+xml;base64,PHN2ZyBpZD0iTGF5ZXJfMSIgZW5hYmxlLWJhY2tncm91bmQ9Im5ldyAwIDAgNTEyIDUxMiIgaGVpZ2h0PSI1MTIiIHZpZXdCb3g9IjAgMCA1MTIgNTEyIiB3aWR0aD0iNTEyIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxnPjxwYXRoIGQ9Im00MzYuMzEgMTA3LjQyNWMtNDguMjQtMzcuNDQtMTEyLjI4LTU4LjA2LTE4MC4zMS01OC4wNi02LjIgMC0xMi4zNy4xNy0xOC41LjUxLTYxLjA4IDMuMzktMTE3Ljk3IDIzLjUyLTE2MS44MSA1Ny41NS00OC44MSAzNy44OC03NS42OSA4OC40Mi03NS42OSAxNDIuMzEgMCA0OC42MSAyMi4yOSA5NS4xNiA2Mi44OSAxMzEuNjItMTEuOTUgMjcuODEtMjcuMjUgNTAuNzktNDUuNTIgNjguMzYtMi4xOCAyLjEtMi44OSA1LjMtMS44IDguMTIgMS4xIDIuODIgMy43OCA0LjcxIDYuOCA0Ljc5LjIxIDAgLjgxLjAxIDEuNzguMDEgMTAuNTkgMCA2NC44My0xLjUxIDEyNC44Ny0zMC43OSAyOC4wNCAxMC4xMSA1Ny43MSAxNi4wNSA4OC40NyAxNy43NSA2LjEzLjM0IDEyLjMuNTEgMTguNTEuNTEgNjguMDMgMCAxMzIuMDctMjAuNjMgMTgwLjMxLTU4LjA3IDQ4LjgxLTM3Ljg4IDc1LjY5LTg4LjQyIDc1LjY5LTE0Mi4zIDAtNTMuODktMjYuODgtMTA0LjQzLTc1LjY5LTE0Mi4zMXoiIGZpbGw9IiNmZjNlN2EiLz48Zz48Zz48cGF0aCBkPSJtMzk4LjMyIDI1NS45OTljMCAyMC42OC0xNi43OTkgMzcuNS0zNy40NTMgMzcuNS00LjM3NSAwLTguNTc5LS43NS0xMi40ODQtMi4xNC0xNC41MzItNS4xNi0yNC45NjktMTkuMDYtMjQuOTY5LTM1LjM2czEwLjQzNy0zMC4yIDI0Ljk2OS0zNS4zNmMzLjkwNS0xLjM5IDguMTEtMi4xNCAxMi40ODQtMi4xNCAyMC42NTQgMCAzNy40NTMgMTYuODIgMzcuNDUzIDM3LjV6IiBmaWxsPSIjZmZmIi8+PHBhdGggZD0ibTM5OC4zMiAyNTUuOTk5YzAgMjAuNjgtMTYuNzk5IDM3LjUtMzcuNDUzIDM3LjUtNC4zNzUgMC04LjU3OS0uNzUtMTIuNDg0LTIuMTQgMTQuNTMyLTUuMTYgMjQuOTY5LTE5LjA2IDI0Ljk2OS0zNS4zNnMtMTAuNDM3LTMwLjItMjQuOTY5LTM1LjM2YzMuOTA1LTEuMzkgOC4xMS0yLjE0IDEyLjQ4NC0yLjE0IDIwLjY1NCAwIDM3LjQ1MyAxNi44MiAzNy40NTMgMzcuNXoiIGZpbGw9IiNkY2VjZjQiLz48L2c+PGc+PHBhdGggZD0ibTE4OC41ODYgMjU1Ljk5NmMwIDIwLjY4LTE2Ljc5OSAzNy41LTM3LjQ1MyAzNy41LTQuMzc1IDAtOC41NzktLjc1LTEyLjQ4NC0yLjE0LTE0LjUzMi01LjE2LTI0Ljk2OS0xOS4wNi0yNC45NjktMzUuMzZzMTAuNDM3LTMwLjIgMjQuOTY5LTM1LjM2YzMuOTA1LTEuMzkgOC4xMS0yLjE0IDEyLjQ4NC0yLjE0IDIwLjY1NCAwIDM3LjQ1MyAxNi44MiAzNy40NTMgMzcuNXoiIGZpbGw9IiNmZmYiLz48cGF0aCBkPSJtMTg4LjU4NiAyNTUuOTk2YzAgMjAuNjgtMTYuNzk5IDM3LjUtMzcuNDUzIDM3LjUtNC4zNzUgMC04LjU3OS0uNzUtMTIuNDg0LTIuMTQgMTQuNTMyLTUuMTYgMjQuOTY5LTE5LjA2IDI0Ljk2OS0zNS4zNnMtMTAuNDM3LTMwLjItMjQuOTY5LTM1LjM2YzMuOTA1LTEuMzkgOC4xMS0yLjE0IDEyLjQ4NC0yLjE0IDIwLjY1NCAwIDM3LjQ1MyAxNi44MiAzNy40NTMgMzcuNXoiIGZpbGw9IiNkY2VjZjQiLz48L2c+PGc+PHBhdGggZD0ibTI5My40NTUgMjU1Ljk5NmMwIDIwLjY4LTE2Ljc5OSAzNy41LTM3LjQ1MyAzNy41LTQuMzc1IDAtOC41NzktLjc1LTEyLjQ4NC0yLjE0LTE0LjUzMi01LjE2LTI0Ljk2OS0xOS4wNi0yNC45NjktMzUuMzZzMTAuNDM3LTMwLjIgMjQuOTY5LTM1LjM2YzMuOTA1LTEuMzkgOC4xMS0yLjE0IDEyLjQ4NC0yLjE0IDIwLjY1NCAwIDM3LjQ1MyAxNi44MiAzNy40NTMgMzcuNXoiIGZpbGw9IiNmZmYiLz48cGF0aCBkPSJtMjkzLjQ1NSAyNTUuOTk2YzAgMjAuNjgtMTYuNzk5IDM3LjUtMzcuNDUzIDM3LjUtNC4zNzUgMC04LjU3OS0uNzUtMTIuNDg0LTIuMTQgMTQuNTMyLTUuMTYgMjQuOTY5LTE5LjA2IDI0Ljk2OS0zNS4zNnMtMTAuNDM3LTMwLjItMjQuOTY5LTM1LjM2YzMuOTA1LTEuMzkgOC4xMS0yLjE0IDEyLjQ4NC0yLjE0IDIwLjY1NCAwIDM3LjQ1MyAxNi44MiAzNy40NTMgMzcuNXoiIGZpbGw9IiNkY2VjZjQiLz48L2c+PC9nPjxwYXRoIGQ9Im01MTIgMjQ5LjczNWMwIDUzLjg4LTI2Ljg4IDEwNC40Mi03NS42OSAxNDIuMy00OC4yNCAzNy40NC0xMTIuMjggNTguMDctMTgwLjMxIDU4LjA3LTYuMjEgMC0xMi4zOC0uMTctMTguNTEtLjUxIDYxLjA4LTMuMzkgMTE3Ljk4LTIzLjUzIDE2MS44Mi01Ny41NiA0OC44MS0zNy44OCA3NS42OS04OC40MiA3NS42OS0xNDIuMyAwLTUzLjg5LTI2Ljg4LTEwNC40My03NS42OS0xNDIuMzEtNDMuODQtMzQuMDMtMTAwLjczLTU0LjE2LTE2MS44MS01Ny41NSA2LjEzLS4zNCAxMi4zLS41MSAxOC41LS41MSA2OC4wMyAwIDEzMi4wNyAyMC42MiAxODAuMzEgNTguMDYgNDguODEgMzcuODggNzUuNjkgODguNDIgNzUuNjkgMTQyLjMxeiIgZmlsbD0iI2IyMDA2ZSIvPjwvZz48L3N2Zz4=" /></button>
                                 <span class="post__footer--nb-of-comments">{{ post.comments.length }}</span>
+
                             </div>
                             <div class="post__footer--infos">
                                 <p class="created-at"> Créé le : {{ post.createdAt.slice(0,10).split('-').reverse().join('-') + ' à ' + post.createdAt.slice(11,16) }}</p>
@@ -79,6 +80,7 @@ export default {
             empty: false,
             commentText: "",
             posts: [],
+            like:[],
             onePost: [],
             comments: []
         };
@@ -413,6 +415,58 @@ h1 {
 
 
 
+.card-icons{
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  height: 40px;
+  padding: 3px 5px;
+  transition: 0.2s;
+  cursor: pointer;
+  font-size: 16px;
+  color: #2eb7eb;
+  filter: brightness(125%);
+
+
+
+
+}
+.like-container{
+
+  color: #fb2626;
+  animation: heart 1.3s forwards ease;
+
+}
+
+.card-icons i{
+  padding: 3px 5px;
+  transition: 0.2s;
+  cursor: pointer;
+}
+
+i {
+  padding: 3px 5px;
+  transition: 0.2s;
+  cursor: pointer;
+}
+
+i:hover {
+  animation: scaler 0.8s infinite linear;
+}
+
+.fa-heart:hover {
+  color: rgba(251, 38, 38, 0.5);
+}
+
+.like-container input:checked + label i {
+  color: #fb2626;
+  animation: heart 1.3s forwards ease;
+}
+
+
+.like-container input {
+  display: none;
+}
 
 
 
