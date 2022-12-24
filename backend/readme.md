@@ -16,3 +16,9 @@ SETTINGS
 * install helmet
 * install sequelize-fixtures
 create '.env' file for token and MySQL passwords (rename as '.env.example' and let the user complete with the datas - put .env in the .gitignore)
+
+### Installation des packages voir package-json et version
+
+npm install
+
+lancement avec: node server
