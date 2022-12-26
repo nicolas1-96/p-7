@@ -85,7 +85,7 @@ export default {
             comments: []
         };
     },
-
+//construction du composant post
     mounted() {
         this.isUserAdmin();
         this.getAllPost();

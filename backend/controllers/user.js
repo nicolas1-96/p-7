@@ -1,6 +1,9 @@
-
+/* Import des modules necessaires */
+//importation models de la base de donnée user.js
 const models = require('../models');
+//importation de bcrypt
 const bcrypt = require('bcrypt');
+//importation de jsonwebtoken
 const jwt = require('jsonwebtoken');
 const passwordValidator = require('password-validator');
 const validate = require('validate-mail');
@@ -18,7 +21,10 @@ schema
 //.is().not().oneOf(['Passw0rd', 'Password123']);
 
 //AUTHENTIFICATION
+/* Controleur inscription */
+//signup pour enregistrer le nouvel utilisateur dans la base de donnée
 exports.signup = (req, res, next) => {
+
     if (!req.body.firstName || !req.body.name || !req.body.email || !req.body.password) {
         return res.status(400).json({ message:'Veuillez remplir tous les champs'});
     }
@@ -32,7 +38,9 @@ exports.signup = (req, res, next) => {
         .then(function(userFound) {
             if (!userFound) {
 
+         // Hashage du mot de passe utilisateur
                 bcrypt.hash(req.body.password, 10, function(err, bcryptedPassword) {
+                     // Creation de l'utilisateur
                     const newUser = models.user.create({
                         firstName: req.body.firstName,
                         name: req.body.name,
@@ -40,17 +48,20 @@ exports.signup = (req, res, next) => {
                         password: bcryptedPassword,
                         isAdmin: 0
                     })
+                    // sauvegarde le user dans la base de donnée
                     .then(newUser => {
                         return res.status(201).json({
                             'userId': newUser.id
                         })
                     })
+                    // au cas d'une erreur status 500 
                     .catch(err => {
                         return res.status(500).json({ 'error':'impossible d\'ajouter l\'utilisateur'});
                         });
                     });
     
             } else {
+                
                 return res.status(409).json({ 'error':'Utilisateur déjà existant'});
             }
         })
@@ -64,13 +75,16 @@ exports.signup = (req, res, next) => {
 }; 
 
 
-
+/* Controleur login */
+// l'identification d'utilisateur grace a login
 exports.login = (req, res, next) => {
     console.log(req.body,"test-user")
+    // si les champs email et password sont vide veuillez remplir tous les champs
     if (!req.body.email || !req.body.password) {
+        // status 400 Utilisateur veuillez remplir tous les champs
         return res.status(400).json({ message:'Veuillez remplir tous les champs'});
     }
-
+// cherche dans la basse de donnée si l'utilisateur est bien present avec findOne
     models.user.findOne({
         where: { email: req.body.email}
     })
@@ -94,7 +108,7 @@ console.log(process.env.USER_ADMIN_PWD,"ENV_TEST_password",userFound.password,)
                 });
             //SESSION ADMIN TEST//   
             } else {
-
+                // si c'est ok bcrypt compare le mot de l'utilisateur envoyer par le front avec celui rentré par l'utilisateur dans sa request
                 bcrypt.compare(req.body.password, userFound.password, function(errBcrypt, resBcrypt) {
                 if(resBcrypt) {
                     console.log('mot de passe correct')
@@ -123,6 +137,9 @@ console.log(process.env.USER_ADMIN_PWD,"ENV_TEST_password",userFound.password,)
 
 };
 
+/**
+ * MODIFIER UN UTILISATEUR
+ */
 exports.modifyUser = (req, res, next) => {
     console.log('modification des données utilisateurs en cours');
     var data = "";
@@ -150,7 +167,9 @@ exports.modifyUser = (req, res, next) => {
 
 };
 
-
+/**
+ * SUPPRIMER UN UTILISATEUR
+ */
 exports.deleteAccount = (req, res, next) => {
         console.log(" SUPPRESSION DE L\'UTILISATEUR EN COURS ")
         console.log(" userId : " + req.params.id)
@@ -167,7 +186,9 @@ exports.deleteAccount = (req, res, next) => {
                 })
             };
 
-//RECUPERER INFOS DE 1 USER
+/**
+ * AFFICHER UN SEUL UTILISATEUR
+ */
 
 exports.getOneUser = (req, res, next) => {
     models.user.findOne ({

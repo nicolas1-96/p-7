@@ -18,7 +18,7 @@ exports.createPost = (req, res, next) => {
             imagePost = `${req.protocol}://${req.get('host')}/images/${req.file.filename}`;
             //console.log(imagePost);
         } 
-
+//enregistrer l'objet dans la base de donnée
         const newPost = models.post.create({
             userId: req.body.userId, 
             title: req.body.title,
@@ -37,7 +37,9 @@ exports.createPost = (req, res, next) => {
             
     };
 
-//READ ALL POST
+/**
+ * AFFICHER TOUTES LES POSTS
+ */
 exports.getAllPosts = (req, res, next) => {
     models.post.findAll({
         include: [{
@@ -68,7 +70,9 @@ exports.getAllPosts = (req, res, next) => {
 
 };
 
-//READ ONE POST
+/**
+ * AFFICHER UNE SEULE SAUCE
+ */
 exports.getOnePost = (req, res, next) => {
 
         models.post.findOne({
@@ -89,7 +93,7 @@ exports.getOnePost = (req, res, next) => {
 
 };
 
-//READ ALL POSTS FROM ONE USER
+//LIRE TOUS LES POSTS D'UN SEUL UTILISATEUR
 exports.getUserPosts = (req, res, next) => {
     
     models.post.findAll({ 
@@ -117,7 +121,7 @@ exports.getUserPosts = (req, res, next) => {
 
 };
 
-//UPDATE POST
+// MISE À JOUR POSTE
 exports.modifyPost = (req, res, next) => {
     console.log('modification en cours');
     var data = '';
@@ -200,7 +204,7 @@ exports.newComment = (req, res, next) => {
 
 };
 
-//READ COMMENT
+//LIRE LES COMMENTAIRES
 exports.getAllComments = (req, res, next) => {
     models.comment.findAll({
         where: { postId: req.params.id},
@@ -218,7 +222,7 @@ exports.getAllComments = (req, res, next) => {
 
 };
 
-//DELETE A COMMENT
+//SUPPRIMER UN COMMENTAIRE
 exports.deleteComment = (req, res, next) => {
     console.log('Vous allez supprimer le commentaire')
     models.comment.destroy({ where: { id: req.params.id}})
